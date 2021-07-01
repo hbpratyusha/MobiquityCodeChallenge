@@ -1,0 +1,38 @@
+[
+    {
+        "name": "New Delhi",
+        "Country": "India",
+        "lat": "28.6139",
+        "lng": "77.2090"
+    },
+    {
+        "name": "Washington, D.C.",
+        "Country": "USA",
+        "lat": "38.889248",
+        "lng": "-77.050636"
+    },
+    {
+        "name": "Canberra",
+        "Country": "Australia",
+        "lat": "-35.282001",
+        "lng": "149.128998"
+    },
+    {
+        "name": "Tokyo",
+        "Country": "Japan",
+        "lat": "35.652832",
+        "lng": "139.839478"
+    },
+    {
+        "name": "Berlin",
+        "Country": "Germany",
+        "lat": "52.520008",
+        "lng": "13.404954"
+    },
+    {
+        "name": "London",
+        "Country": "United Kingdom",
+        "lat": "51.509865",
+        "lng": "-0.118092"
+    }
+]
