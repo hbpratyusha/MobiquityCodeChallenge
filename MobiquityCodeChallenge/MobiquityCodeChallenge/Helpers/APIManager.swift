@@ -23,6 +23,8 @@ class APIManager: NSObject {
         return instance
     }()
     var currentLocation: CLLocationCoordinate2D? = nil
+    var shouldReload: Bool = false
+    var shouldReloadForecast: Bool = false
     func requestWith<T: Codable>(urlString: String, _ method: HTTPMethod = .post, params: [String : Any]?, model: T.Type, completion: ((_ response: APIResponse<T>)->())?) {
         guard let url = URL(string: self.buildURL(urlString, params: params)) else {
             completion?(self.decodableData(response: nil, err: Utility.getErrorWith(msg: ErrorMessages.invalidURL.rawValue)))

@@ -64,10 +64,20 @@ class CityListingViewController: BaseViewController {
         self.addRightNavBarButton(imageName: ImageNames.addIcon.rawValue)
         self.getLocalCities()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        APIManager.sharedInstance.shouldReloadForecast = false
+        if APIManager.sharedInstance.shouldReload {
+            APIManager.sharedInstance.shouldReload = false
+            self.txtSearch.text = ""
+            self.getLocalCities()
+        }
+    }
     private func getLocalCities() {
         self.interactor?.interactWithGetLocalCities()
     }
     override func rightButtonPressed() {
+        self.view.endEditing(true)
         self.performSegue(withIdentifier: Segues.map.rawValue, sender: nil)
     }
 }

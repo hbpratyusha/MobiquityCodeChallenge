@@ -9,6 +9,7 @@
 import UIKit
 
 protocol SettingsBusinessLogic {
+    func interactWithDeleteBookmarkedCities()
 }
 
 protocol SettingsDataStore {
@@ -17,4 +18,9 @@ protocol SettingsDataStore {
 class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
     var presenter: SettingsPresentationLogic?
     var worker: SettingsWorker?
+    func interactWithDeleteBookmarkedCities() {
+        self.worker = SettingsWorker()
+        self.worker?.workOnDeleteBookmarks()
+        self.presenter?.presentGetDeleteLocationsResponse()
+    }
 }
