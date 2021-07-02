@@ -19,7 +19,7 @@ class Utility {
         appearance.tintColor = UIColor.AppColor()
         appearance.isTranslucent = true
         appearance.backgroundColor = UIColor.white
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.AppBlackColor(), NSAttributedString.Key.font: UIFont.init(name: FontName.Bold, size: 16.0)]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.init(name: FontName.Bold, size: 16.0)]
         appearance.layer.shadowColor = UIColor.black.cgColor
         appearance.layer.shadowOffset = CGSize.init(width: 2.0, height: 2.0)
         appearance.layer.shadowRadius = 4.0
