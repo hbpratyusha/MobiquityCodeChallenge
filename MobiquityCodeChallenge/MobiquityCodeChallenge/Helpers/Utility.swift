@@ -28,16 +28,8 @@ class Utility {
     public class func getErrorWith(msg: String?, code: Int = 200) -> Error {
         return NSError(domain: "", code: code, userInfo: [ NSLocalizedDescriptionKey: msg ?? ErrorMessages.unknownError.rawValue])
     }
-    public class func isConnectedToNetwork(_ completion: @escaping ((_ isConnected : Bool) -> Void)) {
-        let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
-        monitor.start(queue: .main)
+    public class func isConnectedToNetwork() -> Bool {
+        return NetworkMonitor.shared.isReachable
     }
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -74,4 +66,27 @@ extension Formatter {
         formatter.dateFormat = "eee MMM dd HH:mm:ss ZZZZ yyyy"
         return formatter
     }()
+}
+class NetworkMonitor {
+  static let shared = NetworkMonitor()
+  var isReachable: Bool { status == .satisfied }
+
+  private let monitor = NWPathMonitor()
+  private var status = NWPath.Status.requiresConnection
+
+  private init() {
+    startMonitoring()
+  }
+
+  func startMonitoring() {
+    monitor.pathUpdateHandler = { [weak self] path in
+      self?.status = path.status
+    }
+    let queue = DispatchQueue(label: "NetworkMonitor")
+    monitor.start(queue: queue)
+  }
+
+  func stopMonitoring() {
+    monitor.cancel()
+  }
 }

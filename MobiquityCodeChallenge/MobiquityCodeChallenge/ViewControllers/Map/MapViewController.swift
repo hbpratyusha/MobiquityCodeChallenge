@@ -86,17 +86,11 @@ class MapViewController: BaseViewController, MapDisplayLogic {
         })
     }
     private func initiateLocationServices() {
-        Utility.isConnectedToNetwork { [weak self] (isConnected) in
-            if isConnected {
-                guard let weakSelf = self else {
-                    print(ErrorMessages.memoryReleased.rawValue)
-                    return
-                }
-                weakSelf.locationManager.delegate = self
-                weakSelf.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                weakSelf.locationManager.requestWhenInUseAuthorization()
-                weakSelf.locationManager.startUpdatingLocation()
-            }
+        if Utility.isConnectedToNetwork() {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.startUpdatingLocation()
         }
     }
     private func addAnnotation() {

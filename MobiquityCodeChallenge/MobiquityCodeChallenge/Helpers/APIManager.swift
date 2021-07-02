@@ -30,31 +30,29 @@ class APIManager: NSObject {
             completion?(self.decodableData(response: nil, err: Utility.getErrorWith(msg: ErrorMessages.invalidURL.rawValue)))
             return
         }
-        Utility.isConnectedToNetwork { (isConnected) in
-            if isConnected {
-                var request = URLRequest(url: url)
-                request.httpMethod = method.rawValue
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                let session = URLSession.shared
-                let task = session.dataTask(with: request) { (data, response, error)  in
-                    if let handler = completion {
-                        if let data = data {
-                           do {
-                                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                                handler(self.decodableData(response: json, err: error))
-                           } catch let err {
-                                handler(self.decodableData(response: nil, err: err))
-                               print("error")
-                           }
-                        } else {
-                            handler(self.decodableData(response: nil, err: error))
-                        }
+        if Utility.isConnectedToNetwork() {
+            var request = URLRequest(url: url)
+            request.httpMethod = method.rawValue
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { (data, response, error)  in
+                if let handler = completion {
+                    if let data = data {
+                       do {
+                            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                            handler(self.decodableData(response: json, err: error))
+                       } catch let err {
+                            handler(self.decodableData(response: nil, err: err))
+                           print("error")
+                       }
+                    } else {
+                        handler(self.decodableData(response: nil, err: error))
                     }
                 }
-                task.resume()
-            } else {
-                completion?(self.decodableData(response: nil, err: Utility.getErrorWith(msg: ErrorMessages.noInternet.rawValue)))
             }
+            task.resume()
+        } else {
+            completion?(self.decodableData(response: nil, err: Utility.getErrorWith(msg: ErrorMessages.noInternet.rawValue)))
         }
     }
     private func buildURL(_ urlString: String, params: [String: Any]?) -> String {
@@ -69,10 +67,16 @@ class APIManager: NSObject {
     private func decodableData<T: Codable>(response: Any?, err: Error?) -> APIResponse<T> {
         var res = APIResponse<T>(list: [], success: false, message: "")
         if let objJson = response as? [String: Any] {
-            if let arr = objJson[ResponseKeys.list] as? Array<Any>, arr.count > 0 {
-                return self.getDecodedData(input: arr)
+            if "\(objJson[ResponseKeys.code] as? String ?? "")" == "200" || objJson[ResponseKeys.code] as? Int ?? 0 == 200 {
+                if let arr = objJson[ResponseKeys.list] as? Array<Any>, arr.count > 0 {
+                    return self.getDecodedData(input: arr)
+                } else {
+                    return self.getDecodedData(input: [objJson])
+                }
             } else {
-                return self.getDecodedData(input: [objJson])
+                res.message = objJson[ResponseKeys.message] as? String ?? ErrorMessages.unknownError.rawValue
+                res.success = false
+                res.list = nil
             }
         } else if let objJson = response as? [Any] {
             return self.getDecodedData(input: objJson)
