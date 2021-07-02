@@ -62,6 +62,7 @@ class CityListingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addRightNavBarButton(imageName: ImageNames.addIcon.rawValue)
+        self.addInfoNavBarButton()
         self.getLocalCities()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -150,5 +151,15 @@ extension CityListingViewController: MapCallBacks {
 extension CityListingViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.tblCities.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text?.count ?? 0 > 0 {
+            searchBar.text = ""
+            self.tblCities.reloadData()
+        }
+        searchBar.resignFirstResponder()
     }
 }

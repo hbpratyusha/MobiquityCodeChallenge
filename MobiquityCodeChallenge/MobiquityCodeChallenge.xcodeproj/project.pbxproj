@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044850E7268EF135000238AC /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044850E6268EF135000238AC /* HelpViewController.swift */; };
+		044850EA268EF2D7000238AC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044850E9268EF2D7000238AC /* WebKit.framework */; };
+		044850EC268EF349000238AC /* help.htm in Resources */ = {isa = PBXBuildFile; fileRef = 044850EB268EF349000238AC /* help.htm */; };
+		044850EE268EFA0C000238AC /* help1.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850ED268EFA0C000238AC /* help1.png */; };
+		044850F0268EFC4F000238AC /* help2.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850EF268EFC4F000238AC /* help2.png */; };
+		044850F2268EFCCB000238AC /* help3.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850F1268EFCCB000238AC /* help3.png */; };
+		044850F4268EFE7A000238AC /* help4.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850F3268EFE7A000238AC /* help4.png */; };
+		044850F6268EFF79000238AC /* help5.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850F5268EFF78000238AC /* help5.png */; };
+		044850F8268F0014000238AC /* help6.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850F7268F0014000238AC /* help6.png */; };
+		044850FB268F01CC000238AC /* help7.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850F9268F01CC000238AC /* help7.png */; };
+		044850FC268F01CC000238AC /* help8.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FA268F01CC000238AC /* help8.png */; };
+		044850FF268F0BDF000238AC /* help10.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FD268F0BDE000238AC /* help10.png */; };
+		04485100268F0BDF000238AC /* help9.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FE268F0BDF000238AC /* help9.png */; };
 		0456BB96268CA9FB00B9B107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456BB95268CA9FB00B9B107 /* AppDelegate.swift */; };
 		0456BB98268CA9FB00B9B107 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456BB97268CA9FB00B9B107 /* SceneDelegate.swift */; };
 		0456BB9F268CA9FB00B9B107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0456BB9D268CA9FB00B9B107 /* Main.storyboard */; };
@@ -70,6 +83,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044850E6268EF135000238AC /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		044850E9268EF2D7000238AC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		044850EB268EF349000238AC /* help.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.htm; sourceTree = "<group>"; };
+		044850ED268EFA0C000238AC /* help1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help1.png; sourceTree = "<group>"; };
+		044850EF268EFC4F000238AC /* help2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help2.png; sourceTree = "<group>"; };
+		044850F1268EFCCB000238AC /* help3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help3.png; sourceTree = "<group>"; };
+		044850F3268EFE7A000238AC /* help4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help4.png; sourceTree = "<group>"; };
+		044850F5268EFF78000238AC /* help5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help5.png; sourceTree = "<group>"; };
+		044850F7268F0014000238AC /* help6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help6.png; sourceTree = "<group>"; };
+		044850F9268F01CC000238AC /* help7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help7.png; sourceTree = "<group>"; };
+		044850FA268F01CC000238AC /* help8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help8.png; sourceTree = "<group>"; };
+		044850FD268F0BDE000238AC /* help10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help10.png; sourceTree = "<group>"; };
+		044850FE268F0BDF000238AC /* help9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help9.png; sourceTree = "<group>"; };
 		0456BB92268CA9FB00B9B107 /* MobiquityCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobiquityCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0456BB95268CA9FB00B9B107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0456BB97268CA9FB00B9B107 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044850EA268EF2D7000238AC /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +173,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044850E5268EF127000238AC /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				044850E6268EF135000238AC /* HelpViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		044850E8268EF2D7000238AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				044850E9268EF2D7000238AC /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0456BB89268CA9FB00B9B107 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +196,7 @@
 				0456BBB0268CAA0100B9B107 /* MobiquityCodeChallengeTests */,
 				0456BBBB268CAA0100B9B107 /* MobiquityCodeChallengeUITests */,
 				0456BB93268CA9FB00B9B107 /* Products */,
+				044850E8268EF2D7000238AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				0483E130268D91580020833A /* BaseViewController.swift */,
+				044850E5268EF127000238AC /* Help */,
 				0456BC2B268CE60200B9B107 /* CityDetail */,
 				0456BBDB268CAC4D00B9B107 /* CityListing */,
 				0456BC01268CAD3500B9B107 /* Settings */,
@@ -286,6 +331,17 @@
 			isa = PBXGroup;
 			children = (
 				0456BC39268CEC2A00B9B107 /* DefaultCities.json */,
+				044850EB268EF349000238AC /* help.htm */,
+				044850ED268EFA0C000238AC /* help1.png */,
+				044850EF268EFC4F000238AC /* help2.png */,
+				044850F1268EFCCB000238AC /* help3.png */,
+				044850F3268EFE7A000238AC /* help4.png */,
+				044850F5268EFF78000238AC /* help5.png */,
+				044850F7268F0014000238AC /* help6.png */,
+				044850F9268F01CC000238AC /* help7.png */,
+				044850FA268F01CC000238AC /* help8.png */,
+				044850FE268F0BDF000238AC /* help9.png */,
+				044850FD268F0BDE000238AC /* help10.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -401,9 +457,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044850F2268EFCCB000238AC /* help3.png in Resources */,
+				044850F4268EFE7A000238AC /* help4.png in Resources */,
 				0456BC3A268CEC2A00B9B107 /* DefaultCities.json in Resources */,
 				0456BBA7268CAA0000B9B107 /* LaunchScreen.storyboard in Resources */,
+				044850FB268F01CC000238AC /* help7.png in Resources */,
 				0456BBA4268CAA0000B9B107 /* Assets.xcassets in Resources */,
+				044850F0268EFC4F000238AC /* help2.png in Resources */,
+				044850FF268F0BDF000238AC /* help10.png in Resources */,
+				044850EC268EF349000238AC /* help.htm in Resources */,
+				044850EE268EFA0C000238AC /* help1.png in Resources */,
+				04485100268F0BDF000238AC /* help9.png in Resources */,
+				044850FC268F01CC000238AC /* help8.png in Resources */,
+				044850F6268EFF79000238AC /* help5.png in Resources */,
+				044850F8268F0014000238AC /* help6.png in Resources */,
 				0456BB9F268CA9FB00B9B107 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +527,7 @@
 				0456BC35268CE61E00B9B107 /* CityDetailModels.swift in Sources */,
 				0456BC36268CE61E00B9B107 /* CityDetailViewController.swift in Sources */,
 				0483E137268DA7820020833A /* CityTableCell.swift in Sources */,
+				044850E7268EF135000238AC /* HelpViewController.swift in Sources */,
 				0456BBE4268CAC4D00B9B107 /* CityListingWorker.swift in Sources */,
 				0483E133268D92BD0020833A /* Utility.swift in Sources */,
 				0456BC0C268CAD3500B9B107 /* SettingsPresenter.swift in Sources */,

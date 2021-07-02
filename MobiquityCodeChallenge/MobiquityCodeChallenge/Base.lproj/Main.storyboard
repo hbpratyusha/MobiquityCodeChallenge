@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Enter search text" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-kO-Hcg">
+                            <searchBar contentMode="redraw" placeholder="Enter search text" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-kO-Hcg">
                                 <rect key="frame" x="0.0" y="44" width="320" height="56"/>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -877,6 +877,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="116-0Z-dRz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3275" y="89"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="Uof-aM-nyR">
+            <objects>
+                <viewController storyboardIdentifier="HelpVC" title="Help" id="e7m-mK-odN" customClass="HelpViewController" customModule="MobiquityCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OW8-as-tsN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikM-Q3-6iG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="leading" secondItem="f1X-HO-n1B" secondAttribute="leading" id="AVQ-c5-URw"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="trailing" secondItem="f1X-HO-n1B" secondAttribute="trailing" id="Mci-Yl-Mc4"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="top" secondItem="f1X-HO-n1B" secondAttribute="top" id="Mk7-Vo-UKg"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="bottom" secondItem="f1X-HO-n1B" secondAttribute="bottom" id="T2w-fN-veP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f1X-HO-n1B"/>
+                    </view>
+                    <connections>
+                        <outlet property="wvHelp" destination="ikM-Q3-6iG" id="eMb-cf-QuZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnr-3G-N5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3911" y="108"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
