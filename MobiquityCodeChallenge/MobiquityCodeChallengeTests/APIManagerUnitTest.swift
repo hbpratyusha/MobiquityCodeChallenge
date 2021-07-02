@@ -2,7 +2,7 @@
 //  APIManagerUnitTest.swift
 //  MobiquityCodeChallengeTests
 //
-//  Created by Mac on 02/07/21.
+//  Created by Pratyusha on 02/07/21.
 //  Copyright © 2021 Mobiquity. All rights reserved.
 //
 
