@@ -55,7 +55,7 @@ class CityDetailInteractor: CityDetailBusinessLogic, CityDetailDataStore {
     }
     func interactWithGetCurrentDetails(_ request: CityDetail.Forecast.Request) {
         self.worker = CityDetailWorker()
-        self.worker?.workOnGetForecastAPI(request: request, completion: { (response) in
+        self.worker?.workOnGetCurrentForecastAPI(request: request, completion: { (response) in
             if let list = response.list, list.count > 0 {
                 self.todayForecast = list.first
                 self.presenter?.presentGetCurrentDetailsForeCastResponse(success: true, message: "")

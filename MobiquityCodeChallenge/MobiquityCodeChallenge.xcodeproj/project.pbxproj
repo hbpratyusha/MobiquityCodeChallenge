@@ -20,6 +20,7 @@
 		044850FC268F01CC000238AC /* help8.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FA268F01CC000238AC /* help8.png */; };
 		044850FF268F0BDF000238AC /* help10.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FD268F0BDE000238AC /* help10.png */; };
 		04485100268F0BDF000238AC /* help9.png in Resources */ = {isa = PBXBuildFile; fileRef = 044850FE268F0BDF000238AC /* help9.png */; };
+		04485102268F28FF000238AC /* APIManagerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04485101268F28FF000238AC /* APIManagerUnitTest.swift */; };
 		0456BB96268CA9FB00B9B107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456BB95268CA9FB00B9B107 /* AppDelegate.swift */; };
 		0456BB98268CA9FB00B9B107 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456BB97268CA9FB00B9B107 /* SceneDelegate.swift */; };
 		0456BB9F268CA9FB00B9B107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0456BB9D268CA9FB00B9B107 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		044850FA268F01CC000238AC /* help8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help8.png; sourceTree = "<group>"; };
 		044850FD268F0BDE000238AC /* help10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help10.png; sourceTree = "<group>"; };
 		044850FE268F0BDF000238AC /* help9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help9.png; sourceTree = "<group>"; };
+		04485101268F28FF000238AC /* APIManagerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerUnitTest.swift; sourceTree = "<group>"; };
 		0456BB92268CA9FB00B9B107 /* MobiquityCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobiquityCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0456BB95268CA9FB00B9B107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0456BB97268CA9FB00B9B107 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				0456BBB1268CAA0100B9B107 /* MobiquityCodeChallengeTests.swift */,
+				04485101268F28FF000238AC /* APIManagerUnitTest.swift */,
 				0456BBB3268CAA0100B9B107 /* Info.plist */,
 			);
 			path = MobiquityCodeChallengeTests;
@@ -307,7 +310,6 @@
 				0483E132268D92BD0020833A /* Utility.swift */,
 				0483E13B268DB7D30020833A /* CoreDataOperations.swift */,
 				0483E13D268DB9E90020833A /* City+CoreDataExtension.swift */,
-				0483E138268DA8820020833A /* CustomControls */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -344,13 +346,6 @@
 				044850FD268F0BDE000238AC /* help10.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		0483E138268DA8820020833A /* CustomControls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04485102268F28FF000238AC /* APIManagerUnitTest.swift in Sources */,
 				0456BBB2268CAA0100B9B107 /* MobiquityCodeChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

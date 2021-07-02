@@ -48,37 +48,6 @@ extension UIColor {
     static func defaultButtonTitle() -> UIColor { return UIColor.white }
     
     static func AppColor() -> UIColor { return UIColor(red: 229.0/255.0, green: 76.0/255.0, blue: 51.0/255.0, alpha: 1.0)}
-    
-    static func BottomBarColor() -> UIColor { return UIColor(red: 47.0/255.0, green: 79.0/255.0, blue: 79.0/255.0, alpha: 1.0)}
-    
-    static func AppNavigationBarBackgroundColor() -> UIColor { return UIColor(red: 229.0/255.0, green: 76.0/255.0, blue: 51.0/255.0, alpha: 1.0)}
-    static func AppPlaceholderColor() -> UIColor { return UIColor(red: 152.0/255.0, green: 152.0/255.0, blue: 152.0/255.0, alpha: 1.0)}
-    static func AppSelectedTextFieldColor() -> UIColor { return UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1.0)}
-    static func AppTextfieldBorderLineColor() -> UIColor { return UIColor(red: 239.0/255.0, green: 239.0/255.0, blue: 239.0/255.0, alpha: 1.0)}
-    static func AppBlackColor() -> UIColor { return UIColor(red: 34.0/255.0, green: 34.0/255.0, blue: 34.0/255.0, alpha: 1.0)}
-    static func AppSelectedCellColor() -> UIColor { return UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1.0)}
-    static func ActLblColor() -> UIColor { return UIColor(red: 34.0/255.0, green: 34.0/255.0, blue: 34.0/255.0, alpha: 1.0)}
-    class func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
 }
 enum FontName : String {
     case Regular            = "HelveticaNeue"

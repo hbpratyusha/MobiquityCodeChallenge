@@ -23,4 +23,6 @@ struct StaticFiles {
 }
 struct ResponseKeys {
     static let list = "list"
+    static let code = "cod"
+    static let message = "message"
 }
