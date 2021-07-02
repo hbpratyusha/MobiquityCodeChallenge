@@ -81,6 +81,14 @@ class CityDetailViewController: BaseViewController, CityDetailDisplayLogic {
         self.callForecastAPI()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if APIManager.sharedInstance.shouldReloadForecast {
+            APIManager.sharedInstance.shouldReloadForecast = false
+            self.callCurrentAPI()
+            self.callForecastAPI()
+        }
+    }
     @objc func segmentTapped(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             self.todayView.isHidden = false
@@ -96,7 +104,11 @@ class CityDetailViewController: BaseViewController, CityDetailDisplayLogic {
         req.appId = appKey
         req.latitude = self.selectedCity?.latitude ?? ""
         req.longitude = self.selectedCity?.longitude ?? ""
-        req.units = "metric"
+        if let strUnit = UserDefaults.standard.value(forKey: DefaultKeys.unitKey) as? String {
+            req.units = strUnit
+        } else {
+            req.units = StaticStrings.metric
+        }
         self.interactor?.interactWithGetCurrentDetails(req)
     }
     private func callForecastAPI() {
@@ -104,7 +116,11 @@ class CityDetailViewController: BaseViewController, CityDetailDisplayLogic {
         req.appId = appKey
         req.latitude = self.selectedCity?.latitude ?? ""
         req.longitude = self.selectedCity?.longitude ?? ""
-        req.units = "metric"
+        if let strUnit = UserDefaults.standard.value(forKey: DefaultKeys.unitKey) as? String {
+            req.units = strUnit
+        } else {
+            req.units = StaticStrings.metric
+        }
         self.interactor?.interactWithGetForeCastDetails(req)
     }
     private func fillCurrentDetails() {

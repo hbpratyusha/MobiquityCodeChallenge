@@ -9,5 +9,7 @@
 import UIKit
 
 class SettingsWorker {
-
+    func workOnDeleteBookmarks() {
+        return DBCity.deleteLocalCities()
+    }
 }

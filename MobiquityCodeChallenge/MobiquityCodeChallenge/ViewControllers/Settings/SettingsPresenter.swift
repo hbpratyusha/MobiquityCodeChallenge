@@ -9,8 +9,12 @@
 import UIKit
 
 protocol SettingsPresentationLogic {
+    func presentGetDeleteLocationsResponse()
 }
 
 class SettingsPresenter: SettingsPresentationLogic {
     weak var viewController: SettingsDisplayLogic?
+    func presentGetDeleteLocationsResponse() {
+        viewController?.displayDeletedLocationsResponse()
+    }
 }

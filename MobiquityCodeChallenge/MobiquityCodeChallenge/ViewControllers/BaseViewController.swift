@@ -92,7 +92,20 @@ class BaseViewController: UIViewController {
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
     }
-    
+    func addInfoNavBarButton() {
+        let button = UIButton(type: .infoDark)
+        button.tintColor = UIColor.AppColor()
+        button.frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        button.addTarget(self, action:  #selector(self.infoButtonPressed), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    @objc func infoButtonPressed() {
+        let vc = HelpViewController.make()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func rightButtonPressed() {
         
     }

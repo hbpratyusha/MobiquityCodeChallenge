@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Enter search text" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-kO-Hcg">
+                            <searchBar contentMode="redraw" placeholder="Enter search text" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-kO-Hcg">
                                 <rect key="frame" x="0.0" y="44" width="320" height="56"/>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -213,29 +213,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Settings View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="54.5" y="262.5" width="211" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Unit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-5o-GX2">
+                                <rect key="frame" x="10" y="64" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SettingsViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="50.5" y="313.5" width="219" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-E9-WR7">
+                                <rect key="frame" x="125" y="57" width="137" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="seV-zm-btd">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <segments>
+                                    <segment title="Metric"/>
+                                    <segment title="Imperial"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.8980392157" green="0.29803921570000003" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentControlChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="wF7-o6-nxT"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtw-zs-W54">
+                                <rect key="frame" x="10" y="115" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qlT-Hq-3F4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Remove added locations">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                </variation>
+                                <connections>
+                                    <action selector="resetAllBookmarks" destination="8rJ-Kc-sve" eventType="touchUpInside" id="5x7-oo-ZcX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="OJV-5o-GX2" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="20" id="IWL-pD-tUQ"/>
+                            <constraint firstItem="mtw-zs-W54" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="10" id="WmH-CC-gmq"/>
+                            <constraint firstItem="mtw-zs-W54" firstAttribute="top" secondItem="OJV-5o-GX2" secondAttribute="bottom" constant="30" id="XJg-PO-Tts"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="mtw-zs-W54" secondAttribute="trailing" constant="10" id="YQf-kz-hca"/>
+                            <constraint firstItem="OJV-5o-GX2" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="10" id="aar-YB-ymH"/>
+                            <constraint firstItem="LvL-E9-WR7" firstAttribute="leading" secondItem="OJV-5o-GX2" secondAttribute="trailing" constant="15" id="bYl-sh-qg5"/>
+                            <constraint firstItem="LvL-E9-WR7" firstAttribute="centerY" secondItem="OJV-5o-GX2" secondAttribute="centerY" id="eIb-et-NlD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="burst.fill" catalog="system" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" id="0kX-0t-4rU"/>
+                    <navigationItem key="navigationItem" title="Settings" id="0kX-0t-4rU"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="LvL-E9-WR7" id="7Md-Sy-fU6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -841,6 +877,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="116-0Z-dRz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3275" y="89"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="Uof-aM-nyR">
+            <objects>
+                <viewController storyboardIdentifier="HelpVC" title="Help" id="e7m-mK-odN" customClass="HelpViewController" customModule="MobiquityCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OW8-as-tsN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikM-Q3-6iG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="leading" secondItem="f1X-HO-n1B" secondAttribute="leading" id="AVQ-c5-URw"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="trailing" secondItem="f1X-HO-n1B" secondAttribute="trailing" id="Mci-Yl-Mc4"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="top" secondItem="f1X-HO-n1B" secondAttribute="top" id="Mk7-Vo-UKg"/>
+                            <constraint firstItem="ikM-Q3-6iG" firstAttribute="bottom" secondItem="f1X-HO-n1B" secondAttribute="bottom" id="T2w-fN-veP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f1X-HO-n1B"/>
+                    </view>
+                    <connections>
+                        <outlet property="wvHelp" destination="ikM-Q3-6iG" id="eMb-cf-QuZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnr-3G-N5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3911" y="108"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

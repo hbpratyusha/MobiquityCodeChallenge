@@ -9,12 +9,13 @@
 import UIKit
 
 protocol SettingsDisplayLogic: class {
+    func displayDeletedLocationsResponse()
 }
 
 class SettingsViewController: BaseViewController, SettingsDisplayLogic {
     var interactor: SettingsBusinessLogic?
     var router: (NSObjectProtocol & SettingsRoutingLogic & SettingsDataPassing)?
-
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     // MARK: Object lifecycle
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -41,7 +42,7 @@ class SettingsViewController: BaseViewController, SettingsDisplayLogic {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
+    
     // MARK: Routing
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,6 +58,33 @@ class SettingsViewController: BaseViewController, SettingsDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if IS_iPAD {
+            self.segmentControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: FontName.Regular, size: 20), NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
+        } else {
+            self.segmentControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: FontName.Regular, size: 15), NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
+        }
+        if let strUnit = UserDefaults.standard.value(forKey: DefaultKeys.unitKey) as? String, strUnit.lowercased() == StaticStrings.imperial {
+            self.segmentControl.selectedSegmentIndex = 1
+        } else {
+            self.segmentControl.selectedSegmentIndex = 0
+        }
     }
-
+    @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            UserDefaults.standard.set(StaticStrings.metric, forKey: DefaultKeys.unitKey)
+        } else {
+            UserDefaults.standard.set(StaticStrings.imperial, forKey: DefaultKeys.unitKey)
+        }
+        APIManager.sharedInstance.shouldReloadForecast = true
+    }
+    @IBAction func resetAllBookmarks() {
+        self.showConfirmationAlert(title: "", message: StaticStrings.confirmAllDelete, cancelTitle: StaticStrings.no, okTitle: StaticStrings.yes) { (btn) in
+            if btn == 1 {
+                self.interactor?.interactWithDeleteBookmarkedCities()
+            }
+        }
+    }
+    func displayDeletedLocationsResponse() {
+        APIManager.sharedInstance.shouldReload = true
+    }
 }

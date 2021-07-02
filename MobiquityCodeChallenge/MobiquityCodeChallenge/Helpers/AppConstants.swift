@@ -18,6 +18,12 @@ struct StaticStrings {
     static let confirmDelete = "Are you sure to delete this location?"
     static let no = "No"
     static let yes = "Yes"
+    static let metric = "metric"
+    static let imperial = "imperial"
+    static let confirmAllDelete = "Are you sure to delete all bookmarked locations?"
+}
+struct DefaultKeys {
+    static let unitKey = "forecast_unit"
 }
 enum ErrorMessages: String {
     case invalidURL = "Invalid URL"
